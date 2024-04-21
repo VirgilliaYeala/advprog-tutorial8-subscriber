@@ -20,3 +20,7 @@ Jawaban :
 - "guest" adalah nama pengguna (username) pertama.
 - "guest" adalah kata sandi (password) pertama.
 - "localhost:5672" adalah alamat server AMQP yang diakses. "localhost" merujuk ke mesin yang sama dengan yang melakukan permintaan, dan "5672" adalah port standar untuk koneksi AMQP.
+
+### My screen shows the RabbitMQ interface when I run cargo run multiple times on the publisher after using threads. Here, it can be seen that the queue reaches 11 because I ran cargo run 4 times.
+![alt text](image.png)
+> Ketika publisher mengirim pesan dengan cepat ke RabbitMQ, antrian terus bertambah setiap kali pesan baru dikirim. Sementara itu, subscriber mengkonsumsi pesan dengan kecepatan yang lebih lambat karena adanya penundaan yang disengaja selama 1 detik per pemrosesan pesan. Penundaan pemrosesan ini memungkinkan pesan-pesan untuk menumpuk dalam antrian.
